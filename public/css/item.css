@@ -1,0 +1,75 @@
+/* Todo item styling */
+.todo li .buttons {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.todo li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+.todo li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #EDF0F1;
+}
+.buttons button {
+    cursor: pointer;
+}
+.buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -11px;
+    transition: all .35s ease;
+}
+.buttons button svg .fill {
+    transition: all .35s ease;
+}
+/* Remove button */
+.buttons .remove svg .fill {
+    fill: #C0CECB;
+}
+.buttons .remove:hover svg .fill {
+    fill: #E85656;
+}
+/* Complete button */
+.buttons .complete svg {
+    border-radius: 11px;
+    border: 1.5px solid #25B992;
+}
+.buttons .complete svg .fill {
+    fill: #25B992;
+}
+
+#todoCompleted .buttons .complete svg {
+    background: #25B992;
+    border: 0;
+}
+#todoCompleted .buttons .complete svg .fill {
+    fill: white;
+}
+
+ul:not(#todoCompleted) .buttons .complete:hover svg {
+    background-color: rgba(37, 185, 154, .1);
+}

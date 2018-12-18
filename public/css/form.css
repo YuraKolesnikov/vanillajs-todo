@@ -1,0 +1,73 @@
+/* Input form styling */
+header input {
+    width: 100%;
+    height: 50px;
+    float: left;
+    background: rgba(225, 225, 225, 0.2);
+    color: rgba(248, 247, 247, 0.85);
+    border-radius: 5px 25px 25px 5px;
+    border: 0px;
+    padding: 0;
+    padding-right: 60px;
+    font-size: 15px;
+    box-shadow: none;
+    outline: none;
+    text-indent: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+}
+
+header input::-webkit-input-placeholder {
+    color: rgba(248, 247, 247, 0.85);
+    opacity: 1;
+    transition: all .5s ease;
+}
+header input:-moz-input-placeholder {
+    color: rgba(248, 247, 247, 0.85);
+}
+header input::-moz-input-placeholder {
+    color: rgba(248, 247, 247, 0.85);
+}
+header input:-ms-input-placeholder {
+    color: rgba(248, 247, 247, 0.85);
+}
+header input:focus::placeholder {
+    opacity: 0;
+}
+header button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .35s ease;
+}
+header button:active {
+    background-color: #f2f2f2;
+}
+
+header button svg {
+    fill: #25B99a;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -7px 0 0 -7px;
+}

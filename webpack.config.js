@@ -11,6 +11,7 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, 'public'),
+        watchContentBase: true
     },
 
     devtool: 'cheap-eval-source-map' // remove for build

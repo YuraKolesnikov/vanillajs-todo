@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open --watch",
     "build": "webpack"
   },
   "devDependencies": {
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "css-loader": "*",
+    "style-loader": "*",
+    "node-sass": "~4.11.0",
+    "sass-loader": "~7.1.0"
   }
 }
