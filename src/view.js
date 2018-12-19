@@ -3,6 +3,7 @@ import { removeButtonHTML, completeButtonHTML } from './buttons'
 class View {
     constructor() {
         this.form   = document.getElementById('inputForm')
+        this.form.addEventListener('submit', this.handleAdd.bind(this))
         this.input  = document.getElementById('inputField')
 
         /* For rendering to determined ul element */
@@ -25,7 +26,38 @@ class View {
         completeButton.innerHTML = completeButtonHTML;
         const buttons = createElement('div', { className: 'buttons' }, removeButton, completeButton)
         const listItem = createElement('li', { className: 'todo-item', id: `${item.id}`, 'data-id': 'pending' }, item.title, buttons)
+        
+        return this._addEventListeners(listItem);
+    }
+
+    _addEventListeners(listItem) {
+        const removeButton = listItem.querySelector('.remove')
+        removeButton.addEventListener('click', this.handleRemove.bind(this))
+        const completeButton = listItem.querySelector('.complete')
+        completeButton.addEventListener('click', this.handleToggle.bind(this))
         return listItem;
+    }
+
+    handleAdd(event) {
+        event.preventDefault();
+        const value = this.input.value
+        if(!value) return alert('Please enter task title!')
+        console.log(value)
+        this.input.value = ''
+        /* Add item to model */
+    }
+
+    handleRemove({ currentTarget }) {
+        const listItem = currentTarget.parentNode.parentNode;
+        console.log(listItem)
+        /* Remove item from model */
+    }
+
+    handleToggle({ currentTarget }) {
+        const listItem = currentTarget.parentNode.parentNode;
+        const id = listItem.id;
+        const status = listItem.dataset.id
+        /* Update model */
     }
 
     addItem(item) {
