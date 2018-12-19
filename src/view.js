@@ -43,7 +43,6 @@ class View extends EventEmitter {
         event.preventDefault();
         const value = this.input.value
         if(!value) return alert('Please enter task title!')
-        console.log(value)
         this.input.value = ''
         this.emit('add', value)
     }
@@ -51,14 +50,12 @@ class View extends EventEmitter {
     handleRemove({ currentTarget }) {
         const listItem = currentTarget.parentNode.parentNode;
         const id = listItem.id;
-        console.log(id)
         this.emit('remove', id)
     }
 
     handleToggle({ currentTarget }) {
         const listItem = currentTarget.parentNode.parentNode;
         const id = listItem.id;
-        console.log(id)
         this.emit('toggle', id)
     }
 
@@ -88,6 +85,13 @@ class View extends EventEmitter {
         } else if(listItem.dataset.id == 'completed') {
             this.todoCompleted.removeChild(listItem)
         }
+    }
+
+    show(items) {
+        items.forEach(item => {
+            const listItem = this._createElement(item)
+            this.todoPending.appendChild(listItem)
+        })
     }
 }
 

@@ -11,12 +11,14 @@ class Model extends EventEmitter{
 
     addItem(item) {
         this._store.push(item);
+        this.emit('change', this._store)
         return item;
     }
 
     toggleItem(id) {
         let item = this._findItem(id);
         item.completed = !item.completed;
+        this.emit('change', this._store)
         return item;
     }
 
@@ -28,6 +30,7 @@ class Model extends EventEmitter{
     removeItem(id) {
         const index = this._store.findIndex(item => item.id == id);
         index > -1 ? this._store.splice(index, 1) : 0
+        this.emit('change', this._store)
     }
 }
 

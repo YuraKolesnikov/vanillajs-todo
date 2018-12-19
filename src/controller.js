@@ -6,6 +6,9 @@ class Controller {
         view.on('add', this.addItem.bind(this))
         view.on('toggle', this.toggleItem.bind(this))
         view.on('remove', this.removeItem.bind(this))
+        view.show(model._store)
+        this.changeTotalOutput()
+        this.changeCompletedOutput()
     }
 
     addItem(title) {
@@ -27,7 +30,6 @@ class Controller {
     }
 
     removeItem(id) {
-        console.log(id)
         this.model.removeItem(id);
         this.view.removeItem(id);
         this.changeTotalOutput()
@@ -43,6 +45,7 @@ class Controller {
     changeCompletedOutput() {
         const output = document.getElementById('completed-output')
         output.textContent = this.model.filterItems(true).length
+        return output;
     }
 }
 
