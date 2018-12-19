@@ -23,7 +23,19 @@ ul.todo {
 .todo li:last-of-type {
     margin: 0;
 }
-
+/* Item counter styling */
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.total p {
+    padding: 5px;
+    text-align: center;
+    font-size: 15px;
+    color: #aaa;
+}
 /* Conditional styling */
 #todoCompleted {
     position: relative;
