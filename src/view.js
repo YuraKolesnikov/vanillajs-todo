@@ -1,3 +1,5 @@
+import { createElement } from './helpers'
+import { removeButtonHTML, completeButtonHTML } from './buttons'
 class View {
     constructor() {
         this.form   = document.getElementById('inputForm')
@@ -16,9 +18,18 @@ class View {
         return this.list.querySelector(`[id="${id}"]`)
     }
 
+    _createElement(item) {
+        const removeButton = createElement('button', { className: 'remove' })
+        removeButton.innerHTML = removeButtonHTML;
+        const completeButton = createElement('button', { className: 'complete' })
+        completeButton.innerHTML = completeButtonHTML;
+        const buttons = createElement('div', { className: 'buttons' }, removeButton, completeButton)
+        const listItem = createElement('li', { className: 'todo-item', id: `${item.id}`, 'data-id': 'pending' }, item.title, buttons)
+        return listItem;
+    }
+
     addItem(item) {
-        /* TODO: засунуть create Element сюда */
-        const listItem = this.createElement(item);
+        const listItem = this._createElement(item);
         this.todoPending.insertBefore(listItem, this.todoPending.childNodes[0])
     }
 
