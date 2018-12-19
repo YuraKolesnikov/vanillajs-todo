@@ -50,7 +50,7 @@ class View extends EventEmitter {
 
     handleRemove({ currentTarget }) {
         const listItem = currentTarget.parentNode.parentNode;
-        const id = listItem;
+        const id = listItem.id;
         console.log(id)
         this.emit('remove', id)
     }

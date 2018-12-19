@@ -22,8 +22,10 @@ class Controller {
         this.view.toggleItem(item.id)
     }
 
-    removeItem() {
-
+    removeItem(id) {
+        console.log(id)
+        this.model.removeItem(id);
+        this.view.removeItem(id);
     }
 }
 
