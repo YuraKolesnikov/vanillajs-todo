@@ -50,15 +50,16 @@ class View extends EventEmitter {
 
     handleRemove({ currentTarget }) {
         const listItem = currentTarget.parentNode.parentNode;
-        console.log(listItem)
-        /* Remove item from model */
+        const id = listItem;
+        console.log(id)
+        this.emit('remove', id)
     }
 
     handleToggle({ currentTarget }) {
         const listItem = currentTarget.parentNode.parentNode;
         const id = listItem.id;
-        const status = listItem.dataset.id
-        /* Update model */
+        console.log(id)
+        this.emit('toggle', id)
     }
 
     addItem(item) {

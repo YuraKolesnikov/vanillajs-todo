@@ -4,6 +4,8 @@ class Controller {
         this.view = view;
 
         view.on('add', this.addItem.bind(this))
+        view.on('toggle', this.toggleItem.bind(this))
+        view.on('remove', this.removeItem.bind(this))
     }
 
     addItem(title) {
@@ -13,6 +15,15 @@ class Controller {
             completed: false
         })
         this.view.addItem(item)
+    }
+
+    toggleItem(id) {
+        const item = this.model.toggleItem(id)
+        this.view.toggleItem(item.id)
+    }
+
+    removeItem() {
+
     }
 }
 
