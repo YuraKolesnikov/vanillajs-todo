@@ -31,22 +31,18 @@ class EventEmitter {
     }
 
     emit(type, arg) {
-        if (this.events[type]) {
-            this.events[type].forEach(callback => callback(arg))
-        }
+        this.events[type] ? this.events[type].forEach(callback => callback(arg)) : 0
     }
 }
 
 function save(data) {
     const string = JSON.stringify(data);
-
     localStorage.setItem('todos', string);
 }
 
 function load() {
     const string = localStorage.getItem('todos');
     const data = JSON.parse(string);
-
     return data;
 }
 

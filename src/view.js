@@ -42,9 +42,9 @@ class View extends EventEmitter {
     handleAdd(event) {
         event.preventDefault();
         const value = this.input.value
-        if(!value) return alert('Please enter task title!')
-        this.input.value = ''
-        this.emit('add', value)
+        !value 
+        ? alert('Please enter task title!')
+        : (this.input.value = '', this.emit('add', value))
     }
 
     handleRemove({ currentTarget }) {
@@ -80,11 +80,9 @@ class View extends EventEmitter {
 
     removeItem(id) {
         const listItem = this._findListItem(id)
-        if(listItem.dataset.id == 'pending') {
-            this.todoPending.removeChild(listItem)
-        } else if(listItem.dataset.id == 'completed') {
-            this.todoCompleted.removeChild(listItem)
-        }
+        listItem.dataset.id == 'pending' 
+        ? this.todoPending.removeChild(listItem)
+        : this.todoCompleted.removeChild(listItem)
     }
 
     show(items) {
