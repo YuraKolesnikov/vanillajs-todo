@@ -21,8 +21,23 @@
         </header>
         <main>
             <div class="container">
-                <ul id="todoPending" class="todo"></ul>
-                <ul id="todoCompleted" class="todo"></ul>
+                <ul id="todoPending" class="todo">
+                    <li>
+                        First pending task
+                        <div class="buttons" id="buttons">
+                            <div class="complete"></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="todoCompleted" class="todo">
+                    <li>
+                        First completed task
+                        <div class="buttons">
+                            <div class="remove"></div>
+                            <div class="complete"></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </main>
         <script src="js/app.js"></script>
