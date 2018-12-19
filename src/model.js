@@ -1,5 +1,7 @@
-class Model {
+import { EventEmitter } from './helpers';
+class Model extends EventEmitter{
     constructor(store = []) {
+        super()
         this._store = store;
     }
 
@@ -9,6 +11,7 @@ class Model {
 
     addItem(item) {
         this._store.push(item);
+        return item;
     }
 
     toggleItem(id) {

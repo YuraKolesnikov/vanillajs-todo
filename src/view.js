@@ -1,7 +1,8 @@
-import { createElement } from './helpers'
+import { createElement, EventEmitter } from './helpers'
 import { removeButtonHTML, completeButtonHTML } from './buttons'
-class View {
+class View extends EventEmitter {
     constructor() {
+        super()
         this.form   = document.getElementById('inputForm')
         this.form.addEventListener('submit', this.handleAdd.bind(this))
         this.input  = document.getElementById('inputField')
@@ -44,7 +45,7 @@ class View {
         if(!value) return alert('Please enter task title!')
         console.log(value)
         this.input.value = ''
-        /* Add item to model */
+        this.emit('add', value)
     }
 
     handleRemove({ currentTarget }) {
