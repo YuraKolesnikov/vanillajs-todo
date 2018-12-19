@@ -15,17 +15,34 @@ class Controller {
             completed: false
         })
         this.view.addItem(item)
+        this.changeTotalOutput()
+        this.changeCompletedOutput()
     }
 
     toggleItem(id) {
         const item = this.model.toggleItem(id)
         this.view.toggleItem(item.id)
+        this.changeTotalOutput()
+        this.changeCompletedOutput()
     }
 
     removeItem(id) {
         console.log(id)
         this.model.removeItem(id);
         this.view.removeItem(id);
+        this.changeTotalOutput()
+        this.changeCompletedOutput()
+    }
+
+    changeTotalOutput() {
+        const output = document.getElementById('total-output')
+        output.textContent = this.model._store.length;
+        return output;
+    }
+
+    changeCompletedOutput() {
+        const output = document.getElementById('completed-output')
+        output.textContent = this.model.filterItems(true).length
     }
 }
 
