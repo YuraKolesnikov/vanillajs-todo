@@ -11,11 +11,6 @@ class Model {
         this._store.push(item);
     }
 
-    /* Future improvement
-    updateItem(id, data) {
-        const item = this._findItem(id);
-        Object.keys(data).forEach(prop => item[prop] = data[prop]);
-    } */
     toggleItem(id) {
         let item = this._findItem(id);
         item.completed = !item.completed;

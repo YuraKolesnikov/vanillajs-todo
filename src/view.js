@@ -22,8 +22,8 @@ class View {
         this.todoPending.insertBefore(listItem, this.todoPending.childNodes[0])
     }
 
-    toggleItem(item) {
-        const listItem = this._findListItem(item.id)
+    toggleItem(id) {
+        const listItem = this._findListItem(id)
         if(listItem.dataset.id == 'pending') {
             this.todoPending.removeChild(listItem)
             listItem.dataset.id = 'completed'
@@ -34,6 +34,15 @@ class View {
             this.todoPending.insertBefore(listItem, this.todoPending.childNodes[0])
         }
         return listItem;
+    }
+
+    removeItem(id) {
+        const listItem = this._findListItem(id)
+        if(listItem.dataset.id == 'pending') {
+            this.todoPending.removeChild(listItem)
+        } else if(listItem.dataset.id == 'completed') {
+            this.todoCompleted.removeChild(listItem)
+        }
     }
 }
 
